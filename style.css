@@ -57,3 +57,12 @@ footer {
     font-size: 15px;
     padding-top: 20px
 }
+
+
+.button_create {
+    transition: transform 0.2s;
+}
+
+.button_create:active {
+    transform: scale(0.96);
+}

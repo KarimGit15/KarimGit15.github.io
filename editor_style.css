@@ -9,6 +9,9 @@ body {
 }
 header {
     display: flex;
+    width: 100vw;
+    min-width: 1000px; /* Не уже, чем сетка */
+    box-sizing: border-box;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -17,7 +20,6 @@ header {
 .header_title {
     color: purple;
     font-size: 28px;
-
 }
 .net {
     display: grid;
@@ -28,7 +30,7 @@ header {
 }
 .main {
     display: flex;
-
+    width: 100%;
 }
 .block {
     background-color: gray;
@@ -77,12 +79,40 @@ header {
     
 }
 .turq {
-    background-color: rgb(188, 6, 149);
+    background-color: purple;
     width: 25px;
     height: 25px;
     border: 1px solid black;
     margin: 5px;
     
+}
+.orange {
+    background-color: orange;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    margin: 5px;
+}
+.black {
+    background-color: rgb(48, 32, 32);
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgb(255, 255, 255);
+    margin: 5px;
+}
+.white {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    margin: 5px;
+}
+.pink {
+    background-color: pink;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    margin: 5px;
 }
 .eraser {
     background-color: gray;
@@ -90,6 +120,20 @@ header {
     height: 39px;
     border: 1px solid black;
     margin: 5px;
+}
+.basket {
+    background-color: gray;
+    width: 37px;
+    height: 39px;
+    border: 1px solid black;
+    margin: 5px
+}
+.fill {
+    background-color: gray;
+    width: 37px;
+    height: 39px;
+    border: 1px solid black;
+    margin: 5px
 }
 
 .download-btn {
@@ -102,4 +146,61 @@ header {
     width: 50px;
     height: 40px;
 }
-
+.blue:hover{
+    transform: scale(1.2);
+}
+.yellow:hover{
+    transform: scale(1.2);
+}
+.black:hover{
+    transform: scale(1.2);
+}
+.white:hover{
+    transform: scale(1.2);
+}
+.pink:hover{
+    transform: scale(1.2);
+}
+.orange:hover{
+    transform: scale(1.2);
+}
+.green:hover{
+    transform: scale(1.2);
+}
+.red:hover{
+    transform: scale(1.2);
+}
+.turq:hover{
+    transform: scale(1.2);
+}
+.eraser:hover{
+    transform: scale(1.2);
+}
+.basket:hover {
+    transform: scale(1.2);
+}
+.download-btn:hover {
+    transform: scale(1.2)
+}
+.fill:hover {
+    transform: scale(1.2)
+}
+.fill {
+    background-color: gray;
+    width: 37px;
+    height: 39px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+  
+.fill.active {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.5); /* Эффект свечения */
+    background: #ccc;
+}

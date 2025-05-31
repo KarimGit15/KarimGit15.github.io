@@ -4,7 +4,13 @@ blue_box = document.querySelector(".blue")
 yellow_box = document.querySelector(".yellow")
 green_box = document.querySelector(".green")
 turq_box = document.querySelector(".turq")
-eraser = document.querySelector(".eraser")
+orange_box = document.querySelector(".orange")
+black_box = document.querySelector(".black")
+white_box = document.querySelector(".white")
+pink_box = document.querySelector(".pink")
+eraser = document.querySelector(".eraser") // Ластик
+basket = document.querySelector(".basket") // Корзина
+fill = document.querySelector(".fill")
 
 
 eraser.addEventListener("click", function() {
@@ -37,6 +43,26 @@ yellow_box.addEventListener("click", function() {
     console.log("Выбран жёлтый цвет")
 }
 )
+orange_box.addEventListener("click", function() {
+    color = "orange"
+    console.log("Выбран оранжевый цвет")
+}
+)
+black_box.addEventListener("click", function() {
+    color = "black"
+    console.log("Выбран чёрный цвет")
+}
+)
+white_box.addEventListener("click", function() {
+    color = "white"
+    console.log("Выбран белый цвет")
+}
+)
+pink_box.addEventListener("click", function() {
+    color = "pink"
+    console.log("Выбран розовый цвет")
+}
+)
 let container = document.querySelector(".net");
 let isDrawing = false;
 
@@ -55,10 +81,14 @@ document.addEventListener("mouseup", function () {
     isDrawing = false;
 });
 
+//basket.addEventListener("click"), function () {
+    //pass
+//} 
+
 document.getElementById('downloadBtn').addEventListener('click', function() {
     // Создаем canvas элемент
     const canvas = document.createElement('canvas');
-    const container = document.querySelector('.net');
+    //const container = document.querySelector('.net');
     const blocks = document.querySelectorAll('.block');
     
     // Устанавливаем размеры canvas
@@ -73,7 +103,6 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
     // Заливаем canvas цветом фона (серый, как у блоков)
     ctx.fillStyle = 'gray';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
     // Рисуем каждый блок на canvas
     blocks.forEach((block, index) => {
         const row = Math.floor(index / cols);
@@ -90,3 +119,45 @@ document.getElementById('downloadBtn').addEventListener('click', function() {
     link.href = canvas.toDataURL('image/png');
     link.click();
 });
+
+
+// Найти все блоки сетки
+let blocks = document.querySelectorAll('.block');
+
+// Добавить обработчик события click для корзины
+basket.addEventListener('click', function() {
+    // Перебрать все блоки и сбросить их фоновый цвет на исходный
+    blocks.forEach(block => {
+        block.style.backgroundColor = 'gray'; // Сбросить фоновый цвет на серый
+    });
+});
+
+
+
+
+// Переменные
+let currentColor = 'black';
+let fillMode = false;
+const fillBtn = document.querySelector('.fill');
+const blockss = document.querySelectorAll('.block');
+const colors = document.querySelectorAll('.palitra > div:not(.fill)');
+
+// Активация заливки
+fillBtn.addEventListener('click', () => {
+  fillMode = !fillMode;
+  fillBtn.classList.toggle('active');
+});
+
+// Выбор цвета
+colors.forEach(color => color.addEventListener('click', () => {
+  currentColor = getComputedStyle(color).backgroundColor;
+}));
+
+// Заливка сетки
+blockss.forEach(block => block.addEventListener('click', () => {
+  if (fillMode) {
+    blockss.forEach(b => b.style.backgroundColor = currentColor);
+  } else {
+    block.style.backgroundColor = currentColor;
+  }
+}));
