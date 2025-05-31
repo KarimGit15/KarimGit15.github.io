@@ -6,6 +6,7 @@ body {
     background-color: black;
     justify-content: flex-start;
     flex-direction: column;
+    font-family: "helvetica";
 }
 header {
     display: flex;
